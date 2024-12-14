@@ -1,12 +1,3 @@
-""" Reverse a String
-Write a function reverse_string(s) that takes a string s and returns the string reversed.
-
-Count Unique Elements
-Write a function count_unique(numbers) that takes a list of integers and returns the count of unique integers.
-
-Sum Even Numbers
-Write a function sum_even(n) that calculates the sum of all even numbers up to and including n. """
-
 def reverse_string(s):
     """
     Reverses the input string.
@@ -18,9 +9,6 @@ def reverse_string(s):
         str: The reversed string.
     """
     return s[::-1]
-
-# Example usage
-print(reverse_string("hello"))  # Output: "olleh"
 
 def count_unique(numbers):
     """
@@ -34,8 +22,8 @@ def count_unique(numbers):
     """
     return len(set(numbers))
 
-# Example usage
-print(count_unique([1, 2, 2, 3, 4, 4]))  # Output: 4
+def return_unique(numbers):
+    return set(numbers)
 
 def sum_even(n):
     """
@@ -49,6 +37,55 @@ def sum_even(n):
     """
     return sum(x for x in range(2, n + 1, 2))
 
+def write_and_read_file():
+    """
+    Writes a string to a file, then reads and returns the content.
+
+    Returns:
+        str: Content of the file.
+    """
+    # Step 1: Write to the file
+    with open("greeting.txt", "w") as file:
+        file.write("Hello, TestDome!")
+
+    # Step 2: Read from the file
+    with open("greeting.txt", "r") as file:
+        content = file.read()
+
+    return content
+
+def factorial_recursive(n):
+    """
+    Calculates the factorial of a number using recursion.
+
+    Args:
+        n (int): A non-negative integer.
+
+    Returns:
+        int: Factorial of n.
+    """
+    if n < 0:
+        raise ValueError("Factorial is not defined for negative numbers.")
+    if n == 0 or n == 1:
+        return 1
+    return n * factorial_recursive(n - 1)
+
+def filter_and_sum_evens(numbers):
+    """
+    Filters even numbers from a list and returns their sum.
+
+    Args:
+        numbers (list): A list of integers.
+
+    Returns:
+        int: The sum of even numbers in the list.
+    """
+    even_sum = 0
+    for num in numbers:
+        if num % 2 == 0:  # Check if the number is even
+            even_sum += num
+    return even_sum
+
 
 if __name__ == "__main__":
     # Test reverse_string
@@ -59,3 +96,13 @@ if __name__ == "__main__":
 
     # Test sum_even
     print(sum_even(7))  # Output: 12 (2 + 4 + 6)
+
+    #Test return_unique
+    print(return_unique([1, 1, 2, 3, 5, 5]))
+
+    #Test write_and_read_file
+    result = write_and_read_file()
+    print(result)  # Output: "Hello, TestDome!"
+
+    #Test factorial
+    print(factorial_recursive(5))  # Output: 120
