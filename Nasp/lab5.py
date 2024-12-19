@@ -121,32 +121,4 @@ def roundToDecimals(num: float, decimals: int) -> float:
     Returns:
         float: rounded number
     """
-    return round(num*10**decimals)/10**decimals
-
-
-symbols_with_probs={'A':0.13,'B':0.21,'C':0.39,'D':0.19,'E':0.08}
-print('problem: ', symbols_with_probs)
-tree=Huffman_tree(symbols_with_probs)
-huffman_code = calculate_codes(tree)
-print('encoding:',huffman_code)
-
-data = 'DEBADE'
-print('original text: ',data)
-
-print('-------ENCODE--------')
-enc=Huffman_encode(data,huffman_code)
-print('data encoded: ',enc)
-
-print('-------DECODE--------')
-print('data decoded back: ',Huffman_decode(enc,tree))
-
-""" # ispravan izlaz
-problem:  {'A': 0.13, 'B': 0.21, 'C': 0.39, 'D': 0.19, 'E': 0.08}
-encoding: {'D': '00', 'E': '010', 'A': '011', 'B': '10', 'C': '11'}
-original text:  DEBADE
--------ENCODE--------
-data encoded:  000101001100010
--------DECODE--------
-data decoded back:  DEBADE
-"""
-    
+    return round(num*10**decimals)/10**decimals   
